@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 
 #New Gems
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'devise', '~> 4.2'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
