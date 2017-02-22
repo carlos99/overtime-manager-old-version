@@ -21,6 +21,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'pry', '~> 0.10.1'
+  gem 'factory_girl_rails', '~> 4.8'
 end
 
 group :development, :test do
