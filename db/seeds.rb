@@ -1,15 +1,15 @@
-100.times do |post|
-	Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: "1")
+100.times do |user|
+	@user = User.create(email: "jon#{user}.snow@gmail.com", password: "123456", password_confirmation: "123456", first_name: "Jon", last_name: "Snow")
 end
 
-puts "100 Posts has been created"
+puts "100 Users Created"
 
- 100.times do |user|
- 	User.create!(first_name: "Jon", last_name: "Snow", email: "jon#{user}.snow@gmail.com", password: "123456")
- end
+AdminUser.create(email: "admin@test.com", password: "123456", password_confirmation: "123456", first_name: "Admin", last_name: "Name")
 
-  puts "100 Users has been created"
+puts "1 Admin User created"
 
- AdminUser.create!(first_name: "Daenerys", last_name: "Targaryen", email: "admin@gmail.com", password: "123456")
+100.times do |post|
+	Post.create!(date: Date.today, rationale: "#{post} rationale content", user_id: @user.id, overtime_request: 3.5)
+end
 
- puts "Admin User has been created"
+puts "100 Posts have been created"
