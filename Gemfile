@@ -19,6 +19,7 @@ gem 'gritter', '1.2.0'
 gem 'administrate', '~> 0.4.0'
 gem 'bourbon'
 gem 'pundit', '~> 1.1'
+gem 'kaminari', '~> 0.17.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
