@@ -7,7 +7,7 @@
 				#
 			</th>
 			<th>
-				Overtime Request
+				Overtime Requested
 			</th>
 			<th>
 				Date
@@ -21,41 +21,15 @@
 			<th>
 				Status
 			</th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
-	<tbody>
-		<% @posts.each do |post| %>
-			<tr>
-				<td>
-					<%= post.id %>
-				</td>
-				<td>
-					<%= post.overtime_request %>
-				</td>
-				<td>
-					<%= post.date %>
-				</td>
-
-				<td>
-					<%= post.user.full_name %>
-				</td>
-
-				<td>
-					<%= link_to truncate(post.rationale), post %>
-				</td>
-
-				<td>
-					<%= status_label post.status %>
-				</td>
-				<td>
-					<%= link_to '', edit_post_path(post), id: "edit_#{post.id}", class: 'glyphicon glyphicon-pencil index-icons' if policy(post).update? %>
-				</td>
-				<td>
-					<%= link_to '', post_path(post), method: :delete, id: "delete_post_#{post.id}_from_index", class: 'glyphicon glyphicon-trash index-icons', data: { confirm: 'Are you sure?' } %>
-				</td>
-			</tr>
-		<% end %>
+	<tbody id="posts">
+		<%= render @posts %>
 	</tbody>
 </table>
 
-<%= paginate @posts %>
+<div id="paginator">
+	<%= paginate @posts, remote: true %>
+</div>
