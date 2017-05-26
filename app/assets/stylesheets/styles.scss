@@ -6,3 +6,25 @@
  	text-decoration: none;
  	color: black;
  }
+
+ //Admin Styles
+
+ .pending-homepage {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: rgba(227, 227, 227, 0.24);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding: 20px;
+}
+
+.homepage-block {
+	background-color: #41B7D8;
+	color: white;
+	margin: 15px;
+	padding: 15px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}

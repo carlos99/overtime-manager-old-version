@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 
   def index
-    #code
+    @pending_approvals = Post.where(status: 'submitted')
   end
 end
