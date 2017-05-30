@@ -7,6 +7,53 @@
  	color: black;
  }
 
+ .h1-title{
+   font-weight: 400;
+   font-family: 'Roboto', sans-serif;
+   font-size: 30px;
+ }
+
+ .h2-title{
+   font-size: 24px;
+   font-weight: 400;
+   margin-bottom: 30px;
+   text-align: center;
+ }
+
+ .homepage-block {
+ 	background-color: #41B7D8;
+ 	color: white;
+ 	margin: 15px;
+ 	padding: 15px;
+ 	-webkit-border-radius: 3px;
+ 	-moz-border-radius: 3px;
+ 	border-radius: 3px;
+ }
+
+ .homepage-block:hover {
+   background-color: #172b63;
+ }
+
+ .form-md-8-container{
+   font-family: 'Roboto', sans-serif;
+   margin-top: 100px;
+ }
+
+ .login-form {
+   border-radius: 0;
+   box-shadow: none;
+   border: none;
+   border-bottom: 1px solid #ccc;
+ }
+
+ .login-form label{
+   font-family: 'Roboto', sans-serif;
+ }
+
+ .login-icons{
+   margin-top: 12px;
+ }
+
  //Admin Styles
 
  .pending-homepage {
@@ -17,18 +64,4 @@
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	padding: 20px;
-}
-
-.homepage-block {
-	background-color: #41B7D8;
-	color: white;
-	margin: 15px;
-	padding: 15px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
-
-.homepage-block:hover {
-  background-color: #172b63;
 }
