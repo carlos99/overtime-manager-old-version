@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :audit_logs
+  resources :audit_logs do
+    member do
+      get :confirm
+    end
+  end
 
   namespace :admin do
     resources :users
