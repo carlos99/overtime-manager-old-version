@@ -10,7 +10,7 @@ namespace :notification do
 
     if submitted_posts.count > 0
       admin_user.each do |admin|
-        ManagerMailer.email(admin).deliver_later
+        ManagerMailer.email(admin).deliver_now
         puts "Email has been sent"
       end
     end
