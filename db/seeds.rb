@@ -4,7 +4,7 @@ end
 
 puts "100 Users Created"
 
-AdminUser.create(email: "admin@test.com", password: "123456", password_confirmation: "123456", first_name: "Admin", last_name: "Name", phone: "4444444444")
+AdminUser.create(email: "carlos@ufgcorp.com", password: "123456", password_confirmation: "123456", first_name: "Admin", last_name: "Name", phone: "4444444444")
 
 puts "1 Admin User created"
 
