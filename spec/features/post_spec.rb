@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 describe 'navigate' do
-
-  let(:user) {FactoryGirl.create(:user)}
+  let(:user) { FactoryGirl.create(:user) }
 
   let(:post) do
     Post.create(date: Date.today, rationale: "Rationale", user_id: user.id, overtime_request: 3.5)
@@ -25,22 +24,27 @@ describe 'navigate' do
   		expect(page).to have_content(/Posts/)
   	end
 
-    # it 'has a list of posts' do
-    #   post1 = FactoryGirl.build_stubbed(:post)
-    #   post2 = FactoryGirl.build_stubbed(:second_post)
-    #   visit posts_path
-    #   expect(page).to have_content(/Rationale|content/)
-    # end
-    #
-    # it "has a scope so that only post creators can see their posts" do
-    #   post1 = FactoryGirl.build_stubbed(:post)
-    #   post2 = FactoryGirl.build_stubbed(:second_post)
-    #   post_from_another_user = FactoryGirl.build_stubbed(:post_from_another_user)
-    # end
+    it 'has a list of posts' do
+      post1 = FactoryGirl.build_stubbed(:post)
+      post2 = FactoryGirl.build_stubbed(:second_post)
+      visit posts_path
+      expect(page).to have_content(/Rationale|content/)
+    end
+
+    it 'has a scope so that only post creators can see their posts' do
+      other_user = User.create(first_name: 'Non', last_name: 'Authorized', email: "nonauth@example.com", password: "asdfasdf", password_confirmation: "asdfasdf", phone: "5555555555")
+      post_from_other_user = Post.create(date: Date.today, rationale: "This post shouldn't be seen", user_id: other_user.id, overtime_request: 3.5)
+
+      visit posts_path
+
+      expect(page).to_not have_content(/This post shouldn't be seen/)
+    end
   end
 
   describe 'new' do
     it 'has a link from the homepage' do
+      employee = Employee.create(first_name: 'Employee', last_name: 'Authorized', email: "employee@example.com", password: "asdfasdf", password_confirmation: "asdfasdf", phone: "5555555555")
+      login_as(employee, :scope => :user)
       visit root_path
 
       click_link("new_post_from_nav")
@@ -59,8 +63,8 @@ describe 'navigate' do
 
       visit posts_path
 
-     click_link("delete_post_#{post_to_delete.id}_from_index")
-     expect(page.status_code).to eq(200)
+      click_link("delete_post_#{post_to_delete.id}_from_index")
+      expect(page.status_code).to eq(200)
     end
   end
 
@@ -78,7 +82,7 @@ describe 'navigate' do
       fill_in 'post[rationale]', with: "Some rationale"
       fill_in 'post[overtime_request]', with: 4.5
 
-      expect { click_on "Save"}.to change(Post, :count).by(1)
+      expect { click_on "Save" }.to change(Post, :count).by(1)
   	end
 
     it 'will have a user associated it' do
@@ -92,7 +96,6 @@ describe 'navigate' do
   end
 
   describe 'edit' do
-
     it 'can be edited' do
       visit edit_post_path(post)
 
