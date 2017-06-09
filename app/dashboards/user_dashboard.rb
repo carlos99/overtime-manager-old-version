@@ -17,13 +17,17 @@ class UserDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime.with_options(searchable: false),
     type: Field::String.with_options(searchable: false),
     phone: Field::String.with_options(searchable: false),
+    social_security_number: Field::Number.with_options(searchable: true),
+    company: Field::String.with_options(searchable: true),
   }.freeze
 
   COLLECTION_ATTRIBUTES = [
     :posts,
     :id,
     :email,
-    :type
+    :type,
+    :social_security_number,
+    :company,
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = [
@@ -31,6 +35,8 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :email,
     :phone,
+    :social_security_number,
+    :company,
     :sign_in_count,
     :current_sign_in_at,
     :last_sign_in_at,
@@ -48,6 +54,8 @@ class UserDashboard < Administrate::BaseDashboard
     :password,
     :first_name,
     :last_name,
-    :phone
+    :phone,
+    :social_security_number,
+    :company,
   ].freeze
 end

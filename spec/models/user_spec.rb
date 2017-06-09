@@ -36,6 +36,26 @@ RSpec.describe User, type: :model do
       @user.phone = '12345678901'
       expect(@user).to_not be_valid
     end
+
+    it 'requires the social security number attribute' do
+      @user.social_security_number = nil
+      expect(@user).to_not be_valid
+    end
+
+    it 'requires the company attribute' do
+      @user.company = nil
+      expect(@user).to_not be_valid
+    end
+
+    it 'requires the social security number to only contain integers' do
+      @user.social_security_number = 'mygreatstr'
+      expect(@user).to_not be_valid
+    end
+
+    it 'requires the social security number attribute to only have 5 chars' do
+      @user.social_security_number = '123456'
+      expect(@user).to_not be_valid
+    end
   end
 
   describe "custom name methods" do

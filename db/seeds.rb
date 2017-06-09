@@ -1,10 +1,10 @@
 10.times do |employee|
-	@employee = Employee.create!(email: "jon#{employee}.snow@gmail.com", password: "123456", password_confirmation: "123456", first_name: "Jon", last_name: "Snow", phone: "4444444444")
+	@employee = Employee.create!(email: "jon#{employee}.snow@gmail.com", password: "123456", password_confirmation: "123456", first_name: "Jon", last_name: "Snow", phone: "4444444444", social_security_number: 12345, company: "Test Company")
 end
 
 puts "10 Users Created"
 
-AdminUser.create(email: "carlos@ufgcorp.com", password: "123456", password_confirmation: "123456", first_name: "Admin", last_name: "Name", phone: "4444444444")
+AdminUser.create(email: "carlos@ufgcorp.com", password: "123456", password_confirmation: "123456", first_name: "Admin", last_name: "Name", phone: "4444444444", social_security_number: 12345, company: "Test Company")
 
 puts "1 Admin User created"
 
